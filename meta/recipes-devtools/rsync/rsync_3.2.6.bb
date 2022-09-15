@@ -17,7 +17,7 @@ SRC_URI = "https://download.samba.org/pub/${BPN}/src/${BP}.tar.gz \
            file://0001-Add-missing-prototypes-to-function-declarations.patch \
            file://0001-Turn-on-pedantic-errors-at-the-end-of-configure.patch \
            "
-SRC_URI[sha256sum] = "2ac4d21635cdf791867bc377c35ca6dda7f50d919a58be45057fd51600c69aba"
+SRC_URI[sha256sum] = "fb3365bab27837d41feaf42e967c57bd3a47bc8f10765a3671efd6a3835454d3"
 
 # -16548 required for v3.1.3pre1. Already in v3.1.3.
 CVE_CHECK_IGNORE += " CVE-2017-16548 "

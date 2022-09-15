@@ -1,4 +1,4 @@
-From 785c0072c80c2f6e0839478453cf65fdeac15da0 Mon Sep 17 00:00:00 2001
+From 47ef33d38cdade9bcb3d7d50ee45c9916f63d29d Mon Sep 17 00:00:00 2001
 From: Khem Raj <raj.khem@gmail.com>
 Date: Mon, 29 Aug 2022 19:53:28 -0700
 Subject: [PATCH] Add missing prototypes to function declarations
@@ -15,6 +15,7 @@ Fixes errors like
 
 Upstream-Status: Submitted [https://lists.samba.org/archive/rsync/2022-August/032858.html]
 Signed-off-by: Khem Raj <raj.khem@gmail.com>
+
 ---
  checksum.c       | 2 +-
  exclude.c        | 2 +-
@@ -29,10 +30,10 @@ Signed-off-by: Khem Raj <raj.khem@gmail.com>
  10 files changed, 12 insertions(+), 13 deletions(-)
 
 diff --git a/checksum.c b/checksum.c
-index fb8c0a0..174c28c 100644
+index 7eb50f1..e0ef53e 100644
 --- a/checksum.c
 +++ b/checksum.c
-@@ -629,7 +629,7 @@ int sum_end(char *sum)
+@@ -631,7 +631,7 @@ int sum_end(char *sum)
  	return csum_len_for_type(cursum_type, 0);
  }
  
@@ -42,7 +43,7 @@ index fb8c0a0..174c28c 100644
  #ifdef SUPPORT_XXH3
  	char buf[32816];
 diff --git a/exclude.c b/exclude.c
-index adc82e2..79f5a82 100644
+index 5458455..87c89fe 100644
 --- a/exclude.c
 +++ b/exclude.c
 @@ -358,7 +358,7 @@ void implied_include_partial_string(const char *s_start, const char *s_end)
@@ -53,9 +54,9 @@ index adc82e2..79f5a82 100644
 +void free_implied_include_partial_string(void)
  {
  	if (partial_string_buf) {
- 		free(partial_string_buf);
+ 		if (partial_string_len)
 diff --git a/hlink.c b/hlink.c
-index 66810a3..6511dfb 100644
+index 20291f2..5c26a6b 100644
 --- a/hlink.c
 +++ b/hlink.c
 @@ -117,8 +117,7 @@ static void match_gnums(int32 *ndx_list, int ndx_count)
@@ -168,6 +169,3 @@ index bbba7b2..61f8dc9 100644
  {
      uLong flags;
  
--- 
-2.37.2
-
